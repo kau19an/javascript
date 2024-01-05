@@ -5,8 +5,8 @@ Este é um repositório para fins estudantis contendo todos os exercícios e des
 * ✔️ **CONCLUÍDO** → Módulo A: Conhecendo o JavaScript
 * ✔️ **CONCLUÍDO** → Módulo B: Comandos básicos do JavaScript
 * ✔️ **CONCLUÍDO** → Módulo C: Entendendo o DOM
-* 🚧 **EM ANDAMENTO** → Módulo D: Condições em JavaScript
-* ❌ **NÃO INICIADO** → Módulo E: Repetições em JavaScript
+* ✔️ **CONCLUÍDO** → Módulo D: Condições em JavaScript
+* 🚧 **EM ANDAMENTO** → Módulo E: Repetições em JavaScript
 * ❌ **NÃO INICIADO** → Módulo F: Avançando os estudos em JavaScript
 
 > Créditos ao [Gustavo Guanabara](https://github.com/gustavoguanabara) por tornar isso possível.

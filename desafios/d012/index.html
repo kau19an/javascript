@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preço mudou</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        input {
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Preço mudou</h1>
+    <input type="button" value="Verificar" onclick="analisar()">
+    <div id="res">
+        <p>Clique no botão acima para analisar a mudança de preço.</p>
+    </div>
+
+    <script>
+        function analisar() {
+            var res = window.document.getElementById('res')
+            var anterior = Number.parseFloat(window.prompt('Qual era o preço anterior do produto?'))
+            var atual = Number.parseFloat(window.prompt('Qual é o preço atual do produto?'))
+            if (atual > anterior) { // Se o preço de agora for maior que o anterior:
+                var situação = 'mais caro'
+                var situação2 = 'subiu'
+                var diferença = atual - anterior
+            } else { // Se o preço de agora for menor que o anterior:
+                var situação = 'mais barato'
+                var situação2 = 'caiu'
+                var diferença = anterior - atual
+            }
+            var variação = (((atual - anterior) / anterior) * 100).toFixed(2)
+            res.innerHTML = `<h2>Analisando os valores informados:</h2><p>O produto custava ${anterior.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})} e <strong>agora custa ${atual.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}</strong>.</p><p>Hoje o produto está <strong>${situação}</strong>.</p><p>O preço <strong>${situação2} ${diferença.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}</strong> em relação ao preço anterior.</p><p>Uma variação de <strong>${String(variação).replace('.', ',')}%</strong>.</p>`
+        }
+
+        // Queria muito entender como o segundo exemplo do Guanabara deu 12,36%... provavelmente foi um erro, até porque 1000 - 12.36% dá R$876,40, e não R$890,00 como foi no dele. Estranho!
+    </script>
+</body>
+</html>

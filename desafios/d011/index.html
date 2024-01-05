@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ano bissexto</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        input {
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ano bissexto</h1>
+    <input type="button" value="Verificar" onclick="verificar()">
+    <div id="res">
+        <p>Informe um ano para saber se ele é bissexto.</p>
+    </div>
+
+    <script>
+        function verificar() {
+            var res = window.document.getElementById('res')
+            var ano = Number.parseInt(window.prompt('Qual é o ano que você quer verificar?'))
+            if (ano % 4 == 0 && ano % 100 != 0 || ano % 4 == 0 && ano % 100 == 0 && ano % 400 == 0) {
+                // Se o ano for divisível por 4 mas não por 100, ou se for divisível por 4, 100 e 400, então:
+                var anoÉBis = '<mark style="background-color: rgb(40, 209, 40); padding: 5px;"><strong>É BISSEXTO</strong></mark> ' + '&#x2705;' // (é)
+            } else { // Qualquer outra possibilidade além da acima:
+                var anoÉBis = '<mark style="background-color: rgb(255, 65, 65); padding: 5px;"><strong>NÃO É BISSEXTO</strong></mark> ' + '&#x274C;' // (não é)
+            }
+            res.innerHTML = `<h2>Analisando o ano de ${ano}...</h2><p>O ano de ${ano} ${anoÉBis}</h2>`
+        }
+    </script>
+</body>
+</html>

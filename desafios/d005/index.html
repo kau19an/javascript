@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de medidas</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        input {
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversor de medidas</h1>
+    <input type="button" value="Converter" onclick="converter()">
+    <div id="res">
+        <p>Clique no botão acima para iniciar.</p>
+    </div>
+
+    <script>
+        function converter() {
+            var res = window.document.getElementById('res')
+            var m = Number.parseFloat(window.prompt('Digite uma distância em metros (m):'))
+            var km = (m / 1000).toFixed(3) // Quilômetro
+            var hm = (m / 100).toFixed(3) // Hectômetro
+            var dam = m / 10             // Decâmetro
+            var dm = m * 10             // Decímetro
+            var cm = m * 100           // Centímetro
+            var mm = m * 1000         // Milímetro
+            res.innerHTML = `<h2>A distância de ${String(m).replace('.', ',')} metros corresponde a...</h2><p><ul><li><strong>Quilômetros</strong>: ${String(km).replace('.', ',')}<em>km</em></li><li><strong>Hectômetros</strong>: ${String(hm).replace('.', ',')}<em>hm</em></li><li><strong>Decâmetros</strong>: ${String(dam).replace('.', ',')}<em>dam</em></li><li><strong>Decímetros</strong>: ${String(dm).replace('.', ',')}<em>dm</em></li><li><strong>Centímetros</strong>: ${String(cm).replace('.', ',')}<em>cm</em></li><li><strong>Milímetros</strong>: ${String(mm).replace('.', ',')}<em>mm</em></li></ul></p>`
+        }
+    </script>
+</body>
+</html>

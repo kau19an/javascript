@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Situação do(a) aluno(a)</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        input {
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Situação do(a) aluno(a)</h1>
+    <input type="button" value="Entrar com as notas" onclick="calcular()">
+    <div id="res">
+        <p>Clique no botão acima para informar as notas do aluno.</p>
+    </div>
+
+    <script>
+        function calcular() {
+            var res = window.document.getElementById('res')
+            var nomeAluno = window.prompt('Qual é o nome do(a) aluno(a)?')
+            var nota1 = Number.parseFloat(window.prompt(`Digite a primeira nota de ${nomeAluno}:`))
+            var nota2 = Number.parseFloat(window.prompt(`Digite a segunda nota de ${nomeAluno}:`))
+            var média = ((nota1 + nota2) / 2).toFixed(2)
+            if (média < 3) {
+                var situação = `Com a média abaixo de 3,0, ${nomeAluno} está <mark style="background-color: rgb(255, 65, 65); padding: 5px;"><strong>REPROVADO(A)</strong></mark>.`
+            } else if (média >= 3 && média <= 6) {
+                var situação = `Com a média entre 3,0 e 6,0, ${nomeAluno} está de <mark style="background-color: orange; padding: 5px;"><strong>RECUPERAÇÃO</strong></mark>.`
+            } else {
+                var situação = `Com a média acima de 6,0, ${nomeAluno} está <mark style="background-color: rgb(40, 209, 40); padding: 5px;"><strong>APROVADO(A)</strong></mark>!`
+            }
+            res.innerHTML = `<h2>Analisando a situação de ${nomeAluno}:</h2><p>Com as notas ${nota1} e ${nota2}, <strong>a média é ${média.replace('.', ',')}</strong>.</p><p>${situação}</p>`
+        }
+    </script>
+</body>
+</html>

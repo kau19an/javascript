@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de troco</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        input {
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculando o troco</h1>
+    <input type="button" value="Comprar produto" onclick="iniciar()">
+
+    <script>
+        function iniciar() {
+            var nomeProd = window.prompt('Qual produto você está comprando?')
+            var $prod = Number.parseFloat(window.prompt(`Quanto "${nomeProd}" custa?`))
+            var $dado = Number.parseFloat(window.prompt(`Qual foi o valor que você deu para pagar "${nomeProd}"?`))
+            if ($dado < $prod) { // Se o valor dado for menor do que o valor total do produto:
+                var $devendo = $prod - $dado
+                window.alert(`[COMPRA NEGADA]\n"${nomeProd}" custa ${$prod.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}, porém, você só deu ${$dado.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}, restando ainda ${$devendo.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}.\n\n- Providencie o restante do dinheiro para poder comprar este produto.`)
+            } else { // Caso a pessoa tenha dado um valor mais alto que o valor total do produto:
+                var troco = $dado - $prod
+                window.alert(`[COMPRA EFETUADA COM SUCESSO]\nVocê comprou "${nomeProd}", que custa ${$prod.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}.\nComo você deu ${$dado.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}, então receberá ${troco.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})} de troco.\n\n- Aproveite sua nova aquisição!`)
+            }
+        }
+    </script>
+</body>
+</html>
