@@ -25,8 +25,8 @@
         function converter() {
             var res = window.document.getElementById('res')
             var Celsius = Number.parseFloat(window.prompt('Digite uma temperatura em graus Celsius (°C):'))
-            var Fahrenheit = (Celsius * 1.8) + 32 // Fahrenheit (°F)
-            var Kelvin = (Celsius + 273.15).toFixed(2)  // Kelvin (K)
+            var Fahrenheit = ((Celsius * 1.8) + 32).toFixed(2) // Fahrenheit (°F)
+            var Kelvin = (Celsius + 273.15).toFixed(2)        // Kelvin (K)
             res.innerHTML = `<h2>A temperatura de ${String(Celsius).replace('.', ',')}°C corresponde a...</h2><p><ul><li><strong>Fahrenheit</strong>: ${String(Fahrenheit).replace('.', ',')}°F</li><li><strong>Kelvin</strong>: ${String(Kelvin).replace('.', ',')} K</li></ul></p>`
         }
     </script>
